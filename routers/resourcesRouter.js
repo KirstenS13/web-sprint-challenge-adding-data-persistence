@@ -6,7 +6,6 @@ const Resource = require("../models/resource")
 const router = express.Router()
 
 // endpoints
-
 // get all resources
 router.get("/", async (req, res, next) => {
     try {

@@ -6,7 +6,6 @@ const Task = require("../models/task")
 const router = express.Router()
 
 // endpoints
-
 // get all tasks
 router.get("/", async (req, res, next) => {
     try {

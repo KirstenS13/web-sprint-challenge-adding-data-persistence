@@ -6,7 +6,6 @@ const Project = require("../models/project")
 const router = express.Router()
 
 // endpoints
-
 // get all projects
 router.get("/", async (req, res, next) => {
     try {

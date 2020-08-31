@@ -20,10 +20,15 @@ async function add(schema) {
         .insert({
             description: schema.description,
             notes: schema.notes,
-            completed: schema.completed
+            completed: schema.completed,
+            project_id: schema.project_id
         })
         .into("tasks");
-    const newTask = await findById(id);
+    const newTask = await db("tasks as t")
+        .where("t.id", id)
+        .join("projects as p", "p.id", "t.project_id")
+        .select("p.name as projectName", "p.description as projectDescription", "t.description as taskDescription", "t.notes as taskNotes", "t.completed", "t.id")
+    console.log(newTask)
     return newTask;
 }
 

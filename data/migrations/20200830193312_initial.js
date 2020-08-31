@@ -13,6 +13,12 @@ exports.up = async function (knex) {
         table.text("description").notNullable()
         table.text("notes")
         table.boolean("completed").notNullable().defaultTo("false")
+        table.integer("project_id")
+            .notNullable()
+            .references("id")
+            .inTable("projects")
+            .onDelete("CASCADE")
+            .onUpdate("CASCADE")
     })
 
     // resources
