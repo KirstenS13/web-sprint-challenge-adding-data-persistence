@@ -1,5 +1,6 @@
 // bring in express and model
 const express = require("express")
+const Project = require("../models/project")
 
 // define router
 const router = express.Router()
@@ -9,7 +10,8 @@ const router = express.Router()
 // get all projects
 router.get("/", async (req, res, next) => {
     try {
-        res.json({ message: "Hey there, this is projects" })
+        const projects = await Project.find()
+        res.json(projects)
     } catch (err) {
         next(err)
     }
