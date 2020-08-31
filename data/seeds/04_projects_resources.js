@@ -4,4 +4,4 @@ exports.seed = async function (knex) {
     { project_id: 1, resource_id: 2 },
     { project_id: 2, resource_id: 1 },
   ])
-};
+}
