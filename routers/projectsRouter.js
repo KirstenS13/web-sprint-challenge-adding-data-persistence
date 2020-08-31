@@ -20,14 +20,8 @@ router.get("/", async (req, res, next) => {
 // add project
 router.post("/", async (req, res, next) => {
     try {
-        console.log(req.body)
         const newProject = await Project.add(req.body)
         res.status(201).json(newProject)
-        // if (newProject.length === 0) {
-        //     next(err)
-        // } else {
-        //     res.status(201).json(newProject)
-        // }
     } catch (err) {
         next(err)
     }

@@ -20,7 +20,8 @@ router.get("/", async (req, res, next) => {
 // add resource
 router.post("/", async (req, res, next) => {
     try {
-
+        const newResource = await Resource.add(req.body)
+        res.status(201).json(newResource)
     } catch (err) {
         next(err)
     }

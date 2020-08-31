@@ -15,8 +15,15 @@ function findById(id) {
 }
 
 // add project
-function add(schema) {
-
+async function add(schema) {
+    const id = await db
+        .insert({
+            name: schema.name,
+            description: schema.description
+        })
+        .into("resources");
+    const newResource = await findById(id);
+    return newResource;
 }
 
 // export helper functions
