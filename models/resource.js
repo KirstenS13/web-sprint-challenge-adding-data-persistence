@@ -7,13 +7,21 @@ function find() {
     return db("resources")
 }
 
+// find by id
+function findById(id) {
+    return db("resources")
+        .where("id", id)
+        .first()
+}
+
 // add project
-function add(newResource) {
+function add(schema) {
 
 }
 
 // export helper functions
 module.exports = {
     find,
+    findById,
     add
 }

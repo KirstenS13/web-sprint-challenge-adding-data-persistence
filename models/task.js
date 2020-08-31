@@ -7,13 +7,21 @@ function find() {
     return db("tasks")
 }
 
+// find by id
+function findById(id) {
+    return db("tasks")
+        .where("id", id)
+        .first()
+}
+
 // add project
-function add(newTask) {
+function add(schema) {
 
 }
 
 // export helper functions
 module.exports = {
     find,
+    findById,
     add
 }

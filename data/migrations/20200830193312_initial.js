@@ -1,10 +1,10 @@
-exports.up = async function(knex) {
+exports.up = async function (knex) {
     // projects
     await knex.schema.createTable("projects", (table) => {
         table.increments("id")
         table.text("name").notNullable()
         table.text("description")
-        table.boolean("completed").notNullable().defaultTo(false)
+        table.boolean("completed").notNullable().defaultTo("false")
     })
 
     // tasks
@@ -12,7 +12,7 @@ exports.up = async function(knex) {
         table.increments("id")
         table.text("description").notNullable()
         table.text("notes")
-        table.boolean("completed").notNullable().defaultTo(false)
+        table.boolean("completed").notNullable().defaultTo("false")
     })
 
     // resources
@@ -40,7 +40,7 @@ exports.up = async function(knex) {
     })
 }
 
-exports.down = async function(knex) {
+exports.down = async function (knex) {
     await knex.schema.dropTableIfExists("projects_resources")
     await knex.schema.dropTableIfExists("resources")
     await knex.schema.dropTableIfExists("tasks")

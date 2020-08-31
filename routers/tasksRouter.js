@@ -18,6 +18,13 @@ router.get("/", async (req, res, next) => {
 })
 
 // add task
+router.post("/", async (req, res, next) => {
+    try {
+
+    } catch (err) {
+        next(err)
+    }
+})
 
 // export router
 module.exports = router
