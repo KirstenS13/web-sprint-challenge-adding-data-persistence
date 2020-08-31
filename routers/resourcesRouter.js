@@ -1,5 +1,6 @@
 // bring in express and model
 const express = require("express")
+const Resource = require("../models/resource")
 
 // define router
 const router = express.Router()
@@ -9,7 +10,8 @@ const router = express.Router()
 // get all resources
 router.get("/", async (req, res, next) => {
     try {
-        res.json({ message: "Hey there, this is resources" })
+        const resources = await Resource.find()
+        res.json(resources)
     } catch (err) {
         next(err)
     }

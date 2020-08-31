@@ -1,5 +1,6 @@
 // bring in express and model
 const express = require("express")
+const Task = require("../models/task")
 
 // define router
 const router = express.Router()
@@ -9,7 +10,8 @@ const router = express.Router()
 // get all tasks
 router.get("/", async (req, res, next) => {
     try {
-        res.json({ message: "Hey there, this is tasks" })
+        const tasks = await Task.find()
+        res.json(tasks)
     } catch (err) {
         next(err)
     }
